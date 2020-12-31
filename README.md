@@ -32,3 +32,52 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Include Tailwind in your CSS
+
+When including Tailwind in your CSS in a Next.js project, there are two approaches you can take.
+
+### Import Tailwind directly in your JS
+
+If you aren't planning to write any custom CSS in your project, the fastest way to include Tailwind is to import it directly in `pages/_app.js`:
+
+```diff-js
+  // pages/_app.js
+- import '../styles/globals.css'
++ import "tailwindcss/tailwind.css";
+
+  function MyApp({ Component, pageProps }) {
+    return <Component {...pageProps} />
+  }
+
+  export default MyApp
+```
+
+If you aren't planning to use them, you can safely delete any CSS files Next.js creates for you by default like `globals.css` and `Home.module.css`. Make sure you delete any references to them within your components as well.
+
+```preval include
+level: 4
+file: ./styles/globals.css
+```
+
+Finally, ensure your CSS file is being imported in your `pages/_app.js` component:
+
+```js
+// pages/_app.js
+import '../styles/globals.css'
+
+function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />
+}
+
+export default MyApp
+```
+
+If you've chosen to use a different file than the default `globals.css` file, you'll want to update the import accordingly.
+
+---
+
+```preval finish
+scripts:
+  - npm run dev
+```
