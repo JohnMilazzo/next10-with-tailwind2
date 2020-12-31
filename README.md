@@ -81,3 +81,15 @@ If you've chosen to use a different file than the default `globals.css` file, yo
 scripts:
   - npm run dev
 ```
+
+### Notes for PostCSS 8
+
+Per Adam:
+
+For Next.js 10 you don't need the compatibility build, install Tailwind like this:
+
+```js
+npm install tailwindcss@latest postcss@latest autoprefixer@latest
+```
+
+PostCSS and Autoprefixer need to be peer-dependencies as of PostCSS 8.
